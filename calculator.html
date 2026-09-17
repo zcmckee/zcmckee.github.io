@@ -10,30 +10,42 @@
     </title>
 </header>
 <style>
+    h1{
+        color: light-blue;
+        text-align: center;
+
+    }
+    button {
+        background-color:cadetblue;
+        width: auto;  
+        height: 25px;
+        margin: auto;
+        align-items:center;
+        display: flex;
+    }
+    button a{
+        text-decoration: none;
+        color: white;
+    }
+
+    *{
+        font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    }
+    table, th, td{
+        border: 1px solid black;
+        font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        margin: auto;
+        padding: 10px;
+    }
+
+
+    
 
 </style>
 <body>
-    <form>
-        <label for="x"> Enter a number: </label>
-        <br>
-        <input type="text" id="x" name="x">
-        <br>
-        <label for="op"> Enter an operator: </label>
-        <br>
-        <input type="text" id="op" name="op">
-        <br>
-        <label for="y"> Enter another number: </label>
-        <br>
-        <input type="text" id="y" name="y">
-        <br>
-        <input type="submit" value="submit" onclick="showAlert">
-    </form>
+    <h1> Calculator </h1>
     
-    <p id="result"></p>
-
-    
-
-    
+   
 
 </body>
 <script src="calculator.js"></script>
