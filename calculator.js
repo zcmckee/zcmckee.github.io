@@ -35,17 +35,8 @@ let validResults = [];
 
 document.write(`
     <style>
-
-    }
-    table {
-        width: 60%;
-        margin: 20px 0;
-        font-family: Arial, sans-serif;
-        justify-content: center;
-        border: 1px solid #4CAF50;
-    }
     th, td {
-        border: 1px solid #333;
+        border: 1px solid: #0f2810;
         padding: 8px;
         text-align: center;
     }
@@ -53,9 +44,7 @@ document.write(`
         background-color: #4CAF50;
         color: white;
     }
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
+
     </style>`);
 
 
@@ -96,7 +85,6 @@ while (true){
         validResults.push(result)
         totalNums = totalNums + 2;
         total = total + result;
-
     } 
     
     
@@ -108,7 +96,7 @@ document.write("<br>");
 
 min = Math.min(...validResults);
 max = Math.max(...validResults);
-avg = total / validResults.length;
+avg = Math.round(total / validResults.length);
 
 document.write("<table>")
 document.write("<tr><th>Minimum</th><th>Maximum</th><th>Average</th><th>Total</th></tr>")
