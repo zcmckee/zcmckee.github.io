@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+</head>
+<header>
+    <title>
+        Form Validation
+    </title>
+</header>
+<body>
+    <form>
+        <label> Username: </label>
+        <input type="text" id="username" maxlength="12" minlength="4" pattern="[a-z]+"><br>
+        <label> Email: </label>
+        <input type="text" id="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"><br>
+        <label> Phone number: </label>
+        <input type="text" minlength="10" maxlength="10" pattern="/^\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/"
+    </form>
+
+</body>
+<script>
+
+</script>
+</html>
