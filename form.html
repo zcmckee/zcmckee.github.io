@@ -10,13 +10,18 @@
     </title>
 </header>
 <body>
+    <h1>
+        assign 4 prompt:
+        <iframe</ifram>
+
+    </h1>
     <form>
         <label> Username: </label>
         <input type="text" id="username" maxlength="12" minlength="4" pattern="[a-z]+"><br>
         <label> Email: </label>
         <input type="text" id="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"><br>
         <label> Phone number: </label>
-        <input type="text" minlength="10" maxlength="10" pattern="/^\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/"
+        <input type="text" minlength="10" maxlength="10" pattern="/^[(][0-9]{3}[)][-\s\.][0-9]{3}[-\s\.][0-9]{4,6}$"
     </form>
 
 </body>
