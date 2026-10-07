@@ -1,74 +1,108 @@
-let username = document.getElementById("id");
+let username = document.getElementById("username");
 let email = document.getElementById("email");
 let phoneNum = document.getElementById("phonenum");
 let password = document.getElementById("password");
 let confPW = document.getElementById("confirmpw");
-
+let gender = document.getElementById("gender");
+let genderKids = gender.querySelectorAll("input[type='radio']");
+let ages = document.getElementById("ages");
 let form = document.getElementById("form");
-const reset = document.getElementById("clear")
+const errors = document.getElementById("errors");
 
 function validateUser(username){
-    return username.test("[a-z]+");
+    return /^[a-z]+$/.test(username);
 }
 
 function validateEmail(email){
-    return email.test("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
+    return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
 }
 
 function validateNum(number){
-    return number.test("/^[(][0-9]{3}[)][-\s\.][0-9]{3}[-\s\.][0-9]{4,6}$");
+    return /^\([0-9]{3}\)[-\s\.][0-9]{3}[-\s\.][0-9]{4,6}$/.test(number);
 }
 
 
 function validatePW(password){
-    return password.test("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$");
-
+    return /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(password);
 }
+
 
 function validateConfPW(password, confirm){
     if (password === confirm){
-        alert("Passwords do not match");
+        return true;
     }
+    return false;
+}
+
+function validateGender(genderKids){
+    for (let i = 0; i< genderKids.length;i++){
+        if (genderKids[i].checked){
+            return true;
+        }
+    }
+    return false;
+    
+}
+
+function validateAges(ages){
+    if (ages.value === ""){
+        return false
+    }
+    return true;
+}
+
+function showError(type, before, field){
+    errors.innerHTML += `<p>${before} <span class="${type}">${field}</span></p>`;
 }
 
 form.addEventListener("submit", function(event){
     event.preventDefault();
-    if (!validateUser(username.value)){
-        document.write("<style>span{color:orange;}</style>");
-        document.write("Please enter <span>a valid username </span>");
+    errors.innerHTML = "";
+
+    if (username.value.length === 0){
+        showError("empty", "Please enter", "Username");
          
-    } else if (username.value.length === 0){
-        document.write("<style>span{color:red;}</style>");
-        document.write("Please enter <span> Username </span>");
+    } else if (!validateUser(username.value)){
+        showError("invalid", "Please enter a valid", "Username");
     }
 
-    if (!validateEmail(email.value)){
-        document.write("<style>span{color:orange;}</style>");
-        document.write("Please enter <span>a valid email </span>");
-    } else if (email.value.length === 0){
-        document.write("<style>span{color:red;}</style>");
-        document.write("Please enter <span> Email </span>");
+    if (email.value.length === 0){
+        showError("empty", "Please enter", "Email");
+
+
+    } else if (!validateEmail(email.value)){
+        showError("invalid", "Please enter a valid", "Email");
     }
 
-    if (!validateNum(phoneNum.value)){
-        document.write("<style>span{color:orange;}</style>");
-        document.write("Please enter <span>a valid phone number </span>");
-    } else if (phoneNum.value.length === 0){
-        document.write("<style>span{color:red;}</style>");
-        document.write("Please enter <span> Phone Number </span>");
+    if (phoneNum.value.length === 0){
+        showError("empty", "Please enter", "Phone Number");
+    } else if (!validateNum(phoneNum.value)){
+        showError("invalid", "Please enter a valid", "Phone Number");
     }
 
-    if (!validatePW(password.value)){
-        document.write("<style>span{color:orange;}</style>");
-        document.write("Please enter <span>a valid password </span>");
-    } else if (password.value.length === 0){
-        document.write("<style>span{color:red;}</style>");
-        document.write("Please enter <span> Password </span>");
+    if (password.value.length === 0){
+        showError("empty", "Please enter", "Password");
+
+    } else if (!validatePW(password.value)){
+        showError("invalid", "Please enter a valid", "Password");
     }
 
-    validateConfPW(password.value, confPW.value);   
 
+    if (validateConfPW(password.value, confPW.value) === false){
+        alert("Passwords do not match");
+    } 
     
-form.addEventListener("reset", function(event){
-   form.reset()
-})
+    var genderResults = validateGender(genderKids);
+    if (genderResults === false){
+        showError("empty", "Please select", "Gender");
+    }
+
+    var ageResults = validateAges(ages);
+    if (ageResults === false){
+        showError("empty", "Please select", "Age");
+    }
+});
+
+form.addEventListener("reset", function(){
+    errors.innerHTML = "";
+});

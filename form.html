@@ -3,29 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <title>Form Validation</title>
 </head>
-<header>
-    <title>
-        Form Validation
-    </title>
-</header>
+
+<style>
+    form {
+        display: block;
+        flex-direction: column;
+        justify-content: left;
+        align-items: center;
+        gap: 12px 4px;
+        width: fit-content;
+        margin: 0 auto;
+        padding: 20px 30px;
+        border: 1px solid #ddd;
+    }
+    form > label {
+        text-align: right;
+    }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 110px;
+            height: 18px;
+       }
+    select {
+        width: 120px;
+     }
+
+    .options {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        white-space: nowrap;
+    }
+
+    .spacer { display: block; }
+
+    .buttons {
+        display: flex;
+        gap: 4px;
+    }
+
+    #errors {
+        width: fit-content;
+        margin: 20px auto 0;
+        text-align: left;
+    }
+    #errors p { margin: 4px 0; }
+        .empty   { color: red; font-weight: bold; }
+        .invalid { color: orange; font-weight: bold; }
+    button {
+        background-color:cadetblue;
+        width: auto;  
+        height: 25px;
+        margin: auto;
+        align-items:center;
+        display: flex;
+    }
+
+
+</style>
+
 <body>
-    <p>
-        to do
-        <ul>
-            <li>
-                make validateform function
-            </li>
-            <li>
-                line up form boxes
-            </li>
-            <li>
-                make resetInputs() function
-            </li>
-            
-        </ul>
-    </p>
-    <form>
+    <form id="form" novalidate>
         <label for="username"> Username: </label>
         <input type="text" id="username" name="username" maxlength="12" minlength="4" >
         <br>
@@ -33,24 +74,26 @@
         <input type="text" id="email" name="email" >
         <br>
         <label for="phonenum"> Phone number: </label>
-        <input type="text" id="phonenum" name="phonenum"minlength="10" maxlength="10">
+        <input type="text" id="phonenum" name="phonenum" minlength="10" maxlength="15">
         <br>
         <label for="password"> Password: </label>
         <input type="password" id="password" name="password" minlength="8">
         <br>
         <label for="confirmpw"> Confirm Password: </label>
-        <input type="password" id="confirmpw" name="confirmpw" minlength="8" required >
+        <input type="password" id="confirmpw" name="confirmpw" minlength="8" >
         <br>
-        <label for="gender">Gender: </label>
-        <input type="radio" id="male" value="Male">
-        <label for="male">Male</label>
-        <input type="radio" id="female" value="Female">
-        <label for="female">Female</label>
-        <input type="radio" id="other" value="Other">
-        <label for="other">Other</label>
+        <div id="gender">
+            <label for="gender">Gender: </label>
+            <input type="radio" id="male" value="Male" name="gender">
+            <label for="male">Male</label>
+            <input type="radio" id="female" value="Female" name="gender">
+            <label for="female">Female</label>
+            <input type="radio" id="other" value="Other" name="gender">
+            <label for="other">Other</label>
+        </div>
         <br>
         <label for="ages">Age Group</label>
-        <select id="ages" required>
+        <select id="ages">
             <option value="" disabled selected></option>
             <option value="undertwoone"> under 21 years old </option>
             <option value="onefive"> 21 - 25 years old </option>
@@ -59,25 +102,32 @@
             <option value="fifty"> over 50 years old </option>
         </select>
         <br>
-        <label for="music">Music Genre: </label>
-        <label for="pop">Pop</label>
-        <input type="checkbox" id="pop" value="Pop">
-        <label for="hiphop">Hip-Hop</label>
-        <input type="checkbox" id="hiphop" value="HipHop">
-        <label for="jazz">Jazz</label>
-        <input type="checkbox" id="jazz" value="Jazz">
-        <label for="rock">Rock</label>
-        <input type="checkbox" id="rock" value="Rock">
-        <label for="classical">Classical Music</label>
-        <input type="checkbox" id="classical" value="ClassicalMusic">
-        <label for="country">Country</label>
-        <input type="checkbox" id="country" value="Country">
+        <div id="music">
+            <label for="music">Music Genre: </label>
+            <label for="pop">Pop</label>
+            <input type="checkbox" id="pop" value="Pop">
+            <label for="hiphop">Hip-Hop</label>
+            <input type="checkbox" id="hiphop" value="HipHop">
+            <label for="jazz">Jazz</label>
+            <input type="checkbox" id="jazz" value="Jazz">
+            <label for="rock">Rock</label>
+            <input type="checkbox" id="rock" value="Rock">
+            <label for="classical">Classical Music</label>
+            <input type="checkbox" id="classical" value="ClassicalMusic">
+            <label for="country">Country</label>
+            <input type="checkbox" id="country" value="Country">
+        </div>
+        <span class="spacer"></span>
         <br>
-        <input type="submit" id="formsubmit" required>
-        <input type="reset" id="clear">
-    
+        <div class="buttons">
+            <input type="submit" id="formsubmit" required>
+            <input type="reset" id="clear">
+        </div>
     </form>
-
+    <div id="errors"></div>
+    <button>
+        <a href="index.html">Home</a>
+    </button>
 </body>
 <script src="validation.js"></script>
 </html>
