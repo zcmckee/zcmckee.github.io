@@ -10,22 +10,74 @@
     </title>
 </header>
 <body>
-    <h1>
-        assign 4 prompt:
-        <iframe</ifram>
-
-    </h1>
+    <p>
+        to do
+        <ul>
+            <li>
+                make validateform function
+            </li>
+            <li>
+                line up form boxes
+            </li>
+            <li>
+                make resetInputs() function
+            </li>
+            
+        </ul>
+    </p>
     <form>
-        <label> Username: </label>
-        <input type="text" id="username" maxlength="12" minlength="4" pattern="[a-z]+"><br>
-        <label> Email: </label>
-        <input type="text" id="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"><br>
-        <label> Phone number: </label>
-        <input type="text" minlength="10" maxlength="10" pattern="/^[(][0-9]{3}[)][-\s\.][0-9]{3}[-\s\.][0-9]{4,6}$"
+        <label for="username"> Username: </label>
+        <input type="text" id="username" name="username" maxlength="12" minlength="4" >
+        <br>
+        <label for="email"> Email: </label>
+        <input type="text" id="email" name="email" >
+        <br>
+        <label for="phonenum"> Phone number: </label>
+        <input type="text" id="phonenum" name="phonenum"minlength="10" maxlength="10">
+        <br>
+        <label for="password"> Password: </label>
+        <input type="password" id="password" name="password" minlength="8">
+        <br>
+        <label for="confirmpw"> Confirm Password: </label>
+        <input type="password" id="confirmpw" name="confirmpw" minlength="8" required >
+        <br>
+        <label for="gender">Gender: </label>
+        <input type="radio" id="male" value="Male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" value="Female">
+        <label for="female">Female</label>
+        <input type="radio" id="other" value="Other">
+        <label for="other">Other</label>
+        <br>
+        <label for="ages">Age Group</label>
+        <select id="ages" required>
+            <option value="" disabled selected></option>
+            <option value="undertwoone"> under 21 years old </option>
+            <option value="onefive"> 21 - 25 years old </option>
+            <option value="sixfive"> 26 - 35 years old </option>
+            <option value="sixzero"> 36 - 50 years old </option>
+            <option value="fifty"> over 50 years old </option>
+        </select>
+        <br>
+        <label for="music">Music Genre: </label>
+        <label for="pop">Pop</label>
+        <input type="checkbox" id="pop" value="Pop">
+        <label for="hiphop">Hip-Hop</label>
+        <input type="checkbox" id="hiphop" value="HipHop">
+        <label for="jazz">Jazz</label>
+        <input type="checkbox" id="jazz" value="Jazz">
+        <label for="rock">Rock</label>
+        <input type="checkbox" id="rock" value="Rock">
+        <label for="classical">Classical Music</label>
+        <input type="checkbox" id="classical" value="ClassicalMusic">
+        <label for="country">Country</label>
+        <input type="checkbox" id="country" value="Country">
+        <br>
+        <input type="submit" id="formsubmit" required>
+        <input type="reset" id="clear">
+    
     </form>
 
 </body>
-<script>
-
-</script>
+<script src="validation.js"></script>
 </html>
