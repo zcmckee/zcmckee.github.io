@@ -1,0 +1,21 @@
+{
+  "name": "zcmckee.github.io",
+  "version": "1.0.0",
+  "description": "repo for comp 322 course work",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zcmckee/zcmckee.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/zcmckee/zcmckee.github.io/issues"
+  },
+  "homepage": "https://github.com/zcmckee/zcmckee.github.io#readme"
+}
